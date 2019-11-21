@@ -5,6 +5,7 @@ namespace App\Logic;
 
 
 use App\Interfaces\GameInterface;
+use App\Models\Game;
 use App\Repository\GameRepository;
 use App\Repository\GameResultRepository;
 
@@ -21,27 +22,31 @@ class OZGame implements GameInterface
 
     public function GetGameAndResultFromDate(string $attributes)
     {
-        $Game = array();
-        $GameInfo = $this->GameRepository->GetGameFromDate($attributes);
+        $result = Game::query()->where('game_date',$attributes)
+            ->join('game_results','games.game_id','=','game_results.game_id')
+            ->select('games.game_num','games.open_time','games.close_time','game_results.num1','game_results.num2','game_results.num3','game_results.num4')
+            ->get();
 
-        foreach($GameInfo as $key => $value){
-            $GameID[$key] = $value['game_id'];
-            $Game[$value['game_id']]['GameNum'] = $value['game_num'];
-            $Game[$value['game_id']]['OpenTime'] = $value['open_time'];
-            $Game[$value['game_id']]['CloseTime'] = $value['close_time'];
-        }
+//        $GameInfo = $this->GameRepository->GetGameFromDate($attributes);
 
-        $ResultInfo = $this->GameResultRepository->GetGameResult($GameID);
-        foreach ($ResultInfo as $key => $value){
-            if(isset($Game[$value['game_id']])){
-                $Game[$value['game_id']]['Num1'] = $value['num1'];
-                $Game[$value['game_id']]['Num2'] = $value['num2'];
-                $Game[$value['game_id']]['Num3'] = $value['num3'];
-                $Game[$value['game_id']]['Num4'] = $value['num4'];
-            }
-        }
+//        foreach($GameInfo as $key => $value){
+//            $GameID[$key] = $value['game_id'];
+//            $Game[$value['game_id']]['GameNum'] = $value['game_num'];
+//            $Game[$value['game_id']]['OpenTime'] = $value['open_time'];
+//            $Game[$value['game_id']]['CloseTime'] = $value['close_time'];
+//        }
 
-        return response()->json($Game);
+//        $ResultInfo = $this->GameResultRepository->GetGameResult($GameID);
+//        foreach ($ResultInfo as $key => $value){
+//            if(isset($Game[$value['game_id']])){
+//                $Game[$value['game_id']]['Num1'] = $value['num1'];
+//                $Game[$value['game_id']]['Num2'] = $value['num2'];
+//                $Game[$value['game_id']]['Num3'] = $value['num3'];
+//                $Game[$value['game_id']]['Num4'] = $value['num4'];
+//            }
+//        }
+
+        return response()->json($result);
     }
 
     public function CreateGame()
