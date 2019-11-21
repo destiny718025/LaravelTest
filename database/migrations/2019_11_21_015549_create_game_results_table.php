@@ -15,12 +15,13 @@ class CreateGameResultsTable extends Migration
     public function up()
     {
         Schema::create('game_results', function (Blueprint $table) {
+            $table->bigIncrements('game_results_oid')->comment('遊戲結果序號');
             $table->integer('game_id')->comment('遊戲編號');
             $table->tinyInteger('num1')->comment('第1碼');
             $table->tinyInteger('num2')->comment('第2碼');
             $table->tinyInteger('num3')->comment('第3碼');
             $table->tinyInteger('num4')->comment('第4碼');
-            $table->primary('game_id');
+            $table->unique(['game_id']);
             $table->timestamps();
         });
     }

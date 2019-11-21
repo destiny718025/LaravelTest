@@ -12,9 +12,13 @@ class GameSeeder extends Seeder
     public function run()
     {
         foreach (array_fill(1, 20, 1) as $key => $item) {
-            factory(\App\Models\Game::class)->create([
+            $gameId = factory(\App\Models\Game::class)->create([
                 'game_id' => $key,
-                'user_id' => $item,
+                'game_num' => '期數'.$key
+            ])->game_id;
+
+            factory(\App\Models\GameResult::class)->create([
+                'game_id' => $gameId,
             ]);
         }
     }

@@ -6,7 +6,7 @@ namespace App\Interfaces;
 
 interface GameInterface
 {
-    public function GetGameAndResultFromDate(string $attributes);
+    public function getGameAndResultFromDate(string $attributes);
 
     public function CreateGame();
 }

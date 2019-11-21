@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/game/{GameDate}', 'GameCenterController@GetGameAndResultFromDate');
-
 Route::get('/test', 'ArticleController@index');
 Route::resource('articles', 'ArticleController');
 
