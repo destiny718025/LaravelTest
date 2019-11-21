@@ -25,7 +25,6 @@ class CreateGamesTable extends Migration
             $table->enum('game_final', ['Y', 'N'])->default('N')->comment('遊戲完成與否');
             $table->enum('game_over', ['Y', 'N'])->default('N')->comment('遊戲結束與否');
             $table->tinyInteger('rep_stat')->comment('RepStat');
-            $table->timestamp('up_time')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('UPTime');
             $table->primary(['game_id', 'user_id', 'game_date']);
             $table->timestamps();
         });

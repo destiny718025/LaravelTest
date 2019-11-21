@@ -2,19 +2,18 @@
 
 use Illuminate\Database\Seeder;
 
-class GameSeeder extends Seeder
+class GameResultSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
         foreach (array_fill(1, 20, 1) as $key => $item) {
-            factory(\App\Models\Game::class)->create([
+            factory(\App\Models\GameResult::class)->create([
                 'game_id' => $key,
-                'user_id' => $item,
             ]);
         }
     }

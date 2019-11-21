@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Interfaces\DefOdds','App\Logic\OZDefOdds');
+        $this->app->bind('App\Interfaces\GameInterface','App\Logic\OZGame');
     }
 
     /**
