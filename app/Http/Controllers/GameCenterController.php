@@ -8,19 +8,19 @@ use Illuminate\Http\Request;
 
 class GameCenterController extends Controller
 {
-    protected $DefOdds;
+    protected $defOdds;
     protected $game;
 
     public function __construct(DefOdds $defOdds, GameInterface $game)
     {
-        $this->DefOdds = $defOdds;
+        $this->defOdds = $defOdds;
         $this->game = $game;
     }
 
     // 取初始賠率
-    public function GetDefOdds()
+    public function getDefOdds()
     {
-        return $this->DefOdds->GetOdds();
+        return $this->defOdds->GetOdds();
     }
 
     // 取當日已開講期數和結果
@@ -30,7 +30,7 @@ class GameCenterController extends Controller
     }
 
     // 新增當日期數
-    public function CreateGame()
+    public function createGame()
     {
 
     }

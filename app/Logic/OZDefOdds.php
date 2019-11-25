@@ -9,12 +9,12 @@ use App\Interfaces\DefOdds;
 
 class OZDefOdds implements DefOdds
 {
-    public function GetOdds()
+    public function getOdds()
     {
 
     }
 
-    public function SetOdds()
+    public function setOdds()
     {
 
     }

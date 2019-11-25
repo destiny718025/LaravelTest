@@ -13,9 +13,9 @@ class GameSeeder extends Seeder
     {
         foreach (array_fill(1, 20, 1) as $key => $item) {
             $gameId = factory(\App\Models\Game::class)->create([
-                'game_id' => $key,
-                'game_num' => '期數'.$key
-            ])->game_id;
+                'id' => $key,
+                'game_num' => $key
+            ])->id;
 
             factory(\App\Models\GameResult::class)->create([
                 'game_id' => $gameId,

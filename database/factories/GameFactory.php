@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Game::class, function (Faker $faker) {
     return [
-        'game_id' => $faker->numberBetween(1, 1000),
+        'id' => $faker->numberBetween(1, 1000),
         'game_num' => $faker->text(10),
         'game_date' => $faker->date('Y-m-d', 'now'),
         'game_open' => $faker->randomElement(['Y', 'N']),

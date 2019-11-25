@@ -23,7 +23,7 @@ class GameRepository
     public function listGameByDate(string $gameDate)
     {
         return $this->game
-            ->select('game_id', 'game_num', 'open_time', 'close_time')
+            ->select('id', 'game_num', 'open_time', 'close_time')
             ->where('game_date', '=', $gameDate)
             ->with(['gameResult'])
             ->get();

@@ -23,7 +23,7 @@ class OZGame implements GameInterface
         $result = $this->GameRepository->listGameByDate($gameDate);
         $result1 = $result->map(function ($game) {
             return [
-                'game_id' => $game->game_id,
+                'game_id' => $game->id,
                 'game_num' => $game->game_num,
                 'open_time' => $game->open_time,
                 'close_time' => $game->close_time,
@@ -36,8 +36,8 @@ class OZGame implements GameInterface
 
         dd($result1);
 
-        $result2 = $this->GameRepository->listGameByDate2($gameDate);
-        dd($result2);
+//        $result2 = $this->GameRepository->listGameByDate2($gameDate);
+//        dd($result2);
 
 //        $result = Game::query()->where('game_date', $gameDate)
 //            ->join('game_results','games.game_id','=','game_results.game_id')
@@ -63,10 +63,10 @@ class OZGame implements GameInterface
 //            }
 //        }
 
-        return response()->json($result);
+        return response()->json($result1);
     }
 
-    public function CreateGame()
+    public function createGame()
     {
 
     }

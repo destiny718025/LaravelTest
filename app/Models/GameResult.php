@@ -10,6 +10,6 @@ class GameResult extends Model
 
     public function game()
     {
-        return $this->belongsTo(Game::class, 'game_id', 'game_id');
+        return $this->belongsTo(Game::class);
     }
 }

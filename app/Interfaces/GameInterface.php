@@ -8,5 +8,5 @@ interface GameInterface
 {
     public function getGameAndResultFromDate(string $attributes);
 
-    public function CreateGame();
+    public function createGame();
 }

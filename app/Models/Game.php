@@ -10,6 +10,6 @@ class Game extends Model
 
     public function gameResult()
     {
-        return $this->hasOne(GameResult::class, 'game_id', 'game_id');
+        return $this->hasOne(GameResult::class);
     }
 }
